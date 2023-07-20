@@ -1,6 +1,6 @@
-# Zig C/C++ Compiler - WTF is Zig C++
+# Zig C/C++ Compiler -- WTF is Zig C++
 
-The power and complexity of **Zig C/C++ Compiler** in Zig
+The power and complexity of **Zig CC** and **Zig C++ ** in Zig
 
 ---
 
@@ -18,7 +18,9 @@ Jul.20.2023
 
 However, due to the power of the language, some of the syntaxes are not obvious for those first coming into the language. I was actually one such person.
 
-Today we will explore Zig as a **C/C++** programmer and see how the **Zig** compiler can be used as a **C/C++** compiler. The idea of the post came from a [talk](https://www.youtube.com/watch?v=-XLSyaJ6m3o) I gave to the [*Bay Area C++ Group*](https://www.meetup.com/cpp-bay-area/). Because the [talk](https://www.youtube.com/watch?v=-XLSyaJ6m3o) was presented to a mostly **C++** group that may have never heard of **Zig**, the deck was ridiculously long. In response, the purpose of this blog is to only focus on using **Zig** as a **C/C++** toolchain rather than as a language.
+Today we will explore Zig as a **C/C++** programmer and see how the **Zig** compiler can be used as a **C/C++** compiler. The idea of the post came from a [talk](https://www.youtube.com/watch?v=-XLSyaJ6m3o) I gave to the [*Bay Area C++ Group*](https://www.meetup.com/cpp-bay-area/).
+
+Because the [talk](https://www.youtube.com/watch?v=-XLSyaJ6m3o) was presented to a mostly **C++** group that may have never heard of **Zig**, the deck was ridiculously long. In response, the purpose of this blog is to only focus on using **Zig** as a **C/C++** toolchain rather than as a language.
 
 ## Zig Toolchain
 
@@ -132,11 +134,11 @@ cd Downloads
 
 ## Zig Cross-Compilation
 
-The **Zig Toolchain** is used at Uber for compiling/cross-compiling the **Go** monorepo. The initial motivation was to support the *arm64* hardware.
+The **Zig Toolchain** is used at Uber for compiling and cross-compiling the **Go** monorepo. The initial motivation was to support the *arm64* hardware.
 
-Motiejus Jakštys wrote a great article on how the **Zig** toolchain is used in Uber at this [blog post](https://www.uber.com/blog/bootstrapping-ubers-infrastructure-on-arm64-with-zig/) and his [talk](https://www.youtube.com/watch?v=SCj2J3HcEfc). He had another update earlier this year but it hasn't been updated yet.
+Motiejus Jakštys wrote a great article on how the **Zig** toolchain is used in Uber at this [blog post](https://www.uber.com/blog/bootstrapping-ubers-infrastructure-on-arm64-with-zig/) and his [talk](https://www.youtube.com/watch?v=SCj2J3HcEfc). He had another update earlier this year, but it hasn't been updated yet.
 
-One of the reason why **Zig** is so suitable for cross-compilation is because it bundles *libC* in source form so not only can one **Zig** toolchain used for cross-compilation for many targets but also the toolchain size is very small.
+One of the reasons why **Zig** is so suitable for cross-compilation is because it bundles *libC* in source form so not only can one **Zig** toolchain used for cross-compilation for many targets but also the toolchain size is very small.
 
 As of writing, **Zig** supports about 40+ *OS* and *ABI* targets, and 60+ *arch* targets. In addition, if you need *libC* support, there are also about 60 target architectures that bundles *libC*.
 
@@ -214,7 +216,7 @@ We also need the header file and because **Zig** has much better support for **C
 void helloWorld(void);
 ```
 
-And finally we need to call our **C/C++** function:
+And finally, we need to call our **C/C++** function:
 
 ```zig
 const std = @import("std");
